@@ -16,6 +16,14 @@ const auth = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const corsOptions = {
+  origin: ['https://e-state-app-two.vercel.app', 'http://localhost:5173', 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
 // Middleware
 app.use(cors());
 app.use(express.json());
